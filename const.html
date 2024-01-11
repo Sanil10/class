@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="con"></p>
+</body>
+<script>
+    function Const(company, brandName, color, model) {
+        this.company = company;
+        this.brandName = brandName;
+        this.color = color;
+        this.model = model;
+        this.power = "10000Hp";
+    }
+
+    const ford = new Const("Ford", "Figo", "Red", "2024");
+    const tesla = new Const("Tesla", "Y-Class", "White", "2023");
+    const bmw = new Const("BMW", "Series 1", "Black", "2020");
+    tesla.power = "11000HP";
+    bmw.price = "five million dollor";
+
+    document.getElementById("con").innerHTML ="Ford: " + ford.company + "<br>" +"Tesla: " + tesla.power + "<br>" + "BMW: " + bmw.price ;
+
+
+</script>
+</html>
