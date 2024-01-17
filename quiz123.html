@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Quiz App</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #ff1e00;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .form-check-input:checked {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #0ce929;
+        }
+
+        .btn-primary:hover {
+            background-color: #f012e1;
+            border-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4a09fc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Quiz App</h1>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                Question 1
+            </div>
+            <div class="card-body">
+                <p class="card-text">What is the capital of France?</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question1" id="q1Option1" value="Berlin">
+                    <label class="form-check-label" for="q1Option1">Berlin</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question1" id="q1Option2" value="Paris">
+                    <label class="form-check-label" for="q1Option2">Paris</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question1" id="q1Option3" value="Madrid">
+                    <label class="form-check-label" for="q1Option3">Madrid</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question1" id="q1Option4" value="Rome">
+                    <label class="form-check-label" for="q1Option4">Rome</label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card2 mb-4">
+            <div class="card-header">
+                Question 2 
+            </div>
+            <div class="card2-body">
+                <p class="card2-text">What country has won the most World Cups?</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question2" id="q2Option1" value="Nepal">
+                    <label class="form-check-label" for="q2Option1">Nepal</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question2" id="q2Option2" value="Brazil">
+                    <label class="form-check-label" for="q2Option2">Brazil</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question2" id="q2Option3" value="Spain">
+                    <label class="form-check-label" for="q2Option3">Spain</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question2" id="q2Option4" value="India">
+                    <label class="form-check-label" for="q2Option4">India</label>
+                </div>
+            </div>
+        </div>
+        <div class="card3 mb-4">
+            <div class="card3-header">
+                Question 3 
+            </div>
+            <div class="card3-body">
+                <p class="card3-text">Which planet has the most moons?</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question3" id="q3Option1" value="Earth">
+                    <label class="form-check-label" for="q3Option1">Earth</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question3" id="q3Option2" value="Mars">
+                    <label class="form-check-label" for="q3Option2">Mars</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question3" id="q3Option3" value="Jupiter">
+                    <label class="form-check-label" for="q3Option3">Jupiter</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question3" id="q3Option4" value="Saturn">
+                    <label class="form-check-label" for="q3Option4">Saturn</label>
+                </div>
+            </div>
+        </div>
+        <div class="card4 mb-4">
+            <div class="card4-header">
+                Question 4
+            </div>
+            <div class="card4-body">
+                <p class="card4-text">When is Consitution day celebrated? </p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question4" id="q4Option1" value="september 19">
+                    <label class="form-check-label" for="q4Option1">september 19</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question4" id="q4Option2" value="october 5">
+                    <label class="form-check-label" for="q4Option2">october 5</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question4" id="q4Option3" value="december 7 ">
+                    <label class="form-check-label" for="q4Option3">december 7 </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question4" id="q4Option4" value="may 15">
+                    <label class="form-check-label" for="q4Option4">may 15</label>
+                </div>
+            </div>
+        </div>
+        <div class="card5 mb-4">
+            <div class="card5-header">
+                Question 5
+            </div>
+            <div class="card5-body">
+                <p class="card5-text">Who is the former Prime minister of Nepal? </p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question5" id="q5Option1" value="Kp Oli">
+                    <label class="form-check-label" for="q5Option1">Kp Oli</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question5" id="q5Option2" value="Dr Babauram Bhattari">
+                    <label class="form-check-label" for="q5Option2">Dr Babauram Bhattari</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question5" id="q5Option3" value="Puspa kamal dahal (Pranchanda)">
+                    <label class="form-check-label" for="q5Option3">Puspa kamal dahal (Pranchanda)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question5" id="q5Option4" value="Girija prasad koirala">
+                    <label class="form-check-label" for="q5Option4">Girija prasad koirala</label>
+                </div>
+            </div>
+        </div>
+        <div class="card6 mb-4">
+            <div class="card6-header">
+                Question 6
+            </div>
+            <div class="card6-body">
+                <p class="card6-text">Who is the first MISS NEPAL of Nepal?</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question6" id="q6Option1" value="Shrinkhala Khatiwoda">
+                    <label class="form-check-label" for="q6Option1">Shrinkhala Khatiwoda</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question6" id="q6Option2" value="Malika Mahat">
+                    <label class="form-check-label" for="q6Option2">Malika Mahat</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question6" id="q6Option3" value="Rubi Rana">
+                    <label class="form-check-label" for="q6Option3">Rubi Rana</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question6" id="q6Option4" value="Subi Shrestha">
+                    <label class="form-check-label" for="q6Option4">Subi Shrestha </label>
+                </div>
+            </div>
+        </div>
+
+
+        <button class="btn btn-primary" onclick="submitQuiz()">Submit</button>
+
+
+        <div id="result" class="mt-4"></div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function submitQuiz() {
+            var correctCount = 0;
+
+            if (document.getElementById('q1Option2').checked) {
+                correctCount++;
+            }
+
+            if (document.getElementById('q2Option2').checked) {
+                correctCount++;
+            }
+            if (document.getElementById('q3Option4').checked) {
+                correctCount++;
+            }
+            if (document.getElementById('q4Option1').checked) {
+                correctCount++;
+            }
+            if (document.getElementById('q5Option3').checked) {
+                correctCount++;
+            }
+            if (document.getElementById('q6Option3').checked) {
+                correctCount++;
+            }
+            var resultElement = document.getElementById('result');
+            resultElement.innerHTML = `<p>Your Score: ${correctCount} out of 6</p>`;
+        }
+    </script>
+</body>
+
+</html>
