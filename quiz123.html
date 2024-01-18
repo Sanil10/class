@@ -69,9 +69,11 @@
     <div class="container mt-5">
         <h1 class="text-center mb-4">Quiz App</h1>
 
-        <!-- Your Quiz Cards Here -->
+        <div id="quiz-container"></div>
 
-        <button class="btn btn-primary" onclick="submitQuiz()">Submit</button>
+        <div class="mt-4">
+            <button class="btn btn-primary" onclick="submitQuiz()">Submit</button>
+        </div>
 
         <div id="result" class="mt-4"></div>
     </div>
@@ -123,7 +125,7 @@
         };
 
         function populateQuiz() {
-            var quizContainer = document.querySelector('.container');
+            var quizContainer = document.getElementById('quiz-container');
 
             quizQuestions.questions.forEach(function (question, index) {
                 var questionCard = `
