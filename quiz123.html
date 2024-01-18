@@ -124,46 +124,68 @@
             ]
         };
 
-        function processQuiz() {
-            var correctCount = 0;
-            var quizContainer = document.getElementById('quiz-container');
+// This function processes the quiz, generates HTML elements for questions and options,
+// checks the selected options, and calculates the user's score.
+function processQuiz() {
+    // Initialize the variable to keep track of correct answers.
+    var correctCount = 0;
 
-            quizQuestions.questions.forEach(function (question, index) {
-                var questionCard = `
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            Question ${index + 1}
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">${question.question}</p>
-                            ${generateOptionsHTML(question.options, `question${index + 1}`)}
-                        </div>
-                    </div>`;
-                quizContainer.insertAdjacentHTML('beforeend', questionCard);
+    // Get the HTML element where the quiz will be displayed.
+    var quizContainer = document.getElementById('quiz-container');
 
-                var selectedOption = document.querySelector(`input[name="question${index + 1}"]:checked`);
-                if (selectedOption && selectedOption.value === question.correctAnswer) {
-                    correctCount++;
-                }
-            });
+    // Iterate through each question in the quizQuestions object.
+    quizQuestions.questions.forEach(function (question, index) {
+        // Generate HTML for each question and its options.
+        var questionCard = `
+            <div class="card mb-4">
+                <div class="card-header">
+                    Question ${index + 1}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">${question.question}</p>
+                    ${generateOptionsHTML(question.options, `question${index + 1}`)}
+                </div>
+            </div>`;
+        
+        // Insert the generated HTML into the quiz container.
+        quizContainer.insertAdjacentHTML('beforeend', questionCard);
 
-            var resultElement = document.getElementById('result');
-            resultElement.innerHTML = `<p>Your Score: ${correctCount} out of ${quizQuestions.questions.length}</p>`;
+        // Check if the user selected an option for the current question.
+        var selectedOption = document.querySelector(`input[name="question${index + 1}"]:checked`);
+        
+        // If a selected option is found and it matches the correct answer, increment the correctCount.
+        if (selectedOption && selectedOption.value === question.correctAnswer) {
+            correctCount++;
         }
+    });
 
-        function generateOptionsHTML(options, questionId) {
-            var optionsHTML = "";
-            options.forEach(function (option, index) {
-                optionsHTML += `
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="${questionId}" id="${questionId}Option${index + 1}" value="${option}">
-                        <label class="form-check-label" for="${questionId}Option${index + 1}">${option}</label>
-                    </div>`;
-            });
-            return optionsHTML;
-        }
+    // Get the HTML element where the quiz result will be displayed.
+    var resultElement = document.getElementById('result');
 
-        window.onload = processQuiz;
+    // Display the user's score in the result element.
+    resultElement.innerHTML = `<p>Your Score: ${correctCount} out of ${quizQuestions.questions.length}</p>`;
+}
+
+// This function generates HTML for the options of a given question.
+function generateOptionsHTML(options, questionId) {
+    var optionsHTML = "";
+
+    // Iterate through each option and generate HTML for radio buttons and labels.
+    options.forEach(function (option, index) {
+        optionsHTML += `
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="${questionId}" id="${questionId}Option${index + 1}" value="${option}">
+                <label class="form-check-label" for="${questionId}Option${index + 1}">${option}</label>
+            </div>`;
+    });
+
+    // Return the generated options HTML.
+    return optionsHTML;
+}
+
+// Trigger the processQuiz function when the window is loaded.
+window.onload = processQuiz;
+
     </script>
 </body>
 
