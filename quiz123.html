@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Quiz App</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-image:url("abc.jpg");
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #ff1e00;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(242, 225, 225, 0.964);
+            background-color:transparent ;
+            color: #ace00d;
+        }
+
+        .card-header {
+            background-color:transparent;
+            color: #ffffff;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .form-check-input:checked {
+            background-color:transparent;
+            border-color: #f0f2f5;
+        }
+
+        .btn-primary {
+            background-color:transparent;
+            border-color: #eaf1eb;
+        }
+
+        .btn-primary:hover {
+            background-color:transparent;
+            border-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4a09fc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Quiz App</h1>
+
+        <div id="quiz-container"></div>
+
+        <div class="mt-4">
+            <button class="btn btn-primary" onclick="processQuiz()">Submit</button>
+        </div>
+
+        <div id="result" class="mt-4"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        var quizQuestions = {
+            "questions": [
+                {
+                    "id": 1,
+                    "question": "What is the capital of France?",
+                    "options": ["Berlin", "Paris", "Madrid", "Rome"],
+                    "correctAnswer": "Paris"
+                },
+                {
+                    "id": 2,
+                    "question": "What country has won the most World Cups?",
+                    "options": ["Nepal", "Brazil", "Spain", "India"],
+                    "correctAnswer": "Brazil"
+                },
+                {
+                    "id": 3,
+                    "question": "Which planet has the most moons?",
+                    "options": ["Earth", "Mars", "Jupiter", "Saturn"],
+                    "correctAnswer": "Saturn"
+                },
+                {
+                    "id": 4,
+                    "question": "When is Constitution day celebrated?",
+                    "options": ["September 19", "October 5", "December 7", "May 15"],
+                    "correctAnswer": "September 19"
+                },
+                {
+                    "id": 5,
+                    "question": "Who is the former Prime Minister of Nepal?",
+                    "options": ["Kp Oli", "Dr Babauram Bhattari", "Puspa Kamal Dahal (Prachanda)", "Girija Prasad Koirala"],
+                    "correctAnswer": "Puspa Kamal Dahal (Prachanda)"
+                },
+                {
+                    "id": 6,
+                    "question": "Who is the first MISS NEPAL of Nepal?",
+                    "options": ["Shrinkhala Khatiwoda", "Malika Mahat", "Rubi Rana", "Subi Shrestha"],
+                    "correctAnswer": "Rubi Rana"
+                },
+            ]
+        };
+
+        function processQuiz() {
+            var correctCount = 0;
+            var quizContainer = document.getElementById('quiz-container');
+
+            quizQuestions.questions.forEach(function (question, index) {
+                var questionCard = `
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            Question ${index + 1}
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">${question.question}</p>
+                            ${generateOptionsHTML(question.options, `question${index + 1}`)}
+                        </div>
+                    </div>`;
+                quizContainer.insertAdjacentHTML('beforeend', questionCard);
+
+                var selectedOption = document.querySelector(`input[name="question${index + 1}"]:checked`);
+                if (selectedOption && selectedOption.value === question.correctAnswer) {
+                    correctCount++;
+                }
+            });
+
+            var resultElement = document.getElementById('result');
+            resultElement.innerHTML = `<p>Your Score: ${correctCount} out of ${quizQuestions.questions.length}</p>`;
+        }
+
+        function generateOptionsHTML(options, questionId) {
+            var optionsHTML = "";
+            options.forEach(function (option, index) {
+                optionsHTML += `
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="${questionId}" id="${questionId}Option${index + 1}" value="${option}">
+                        <label class="form-check-label" for="${questionId}Option${index + 1}">${option}</label>
+                    </div>`;
+            });
+            return optionsHTML;
+        }
+
+        window.onload = processQuiz;
+    </script>
+</body>
+
+</html>
